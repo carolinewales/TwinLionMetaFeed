@@ -5,8 +5,10 @@ import os
 
 # ~~~ SETUP ~~~
 # Lightspeed credentials
-key = os.getenv('LIGHTSPEED_KEY')
-secret = os.getenv('LIGHTSPEED_SECRET')
+# key = os.getenv('LIGHTSPEED_KEY')
+# secret = os.getenv('LIGHTSPEED_SECRET')
+key = '66ad4654222fa42e5dcbd59ad966c829'
+secret = 'bd94f3fe331e5289a74b486dfe51923c'
 baseURL = 'https://api.shoplightspeed.com/us/'
 # Men's and Women's IDs
 womensIDs = {4547704, 3165569, 3165570, 3165571, 3165572, 3165568, 4149105, 3165573, 3995009, 3165515, 3165517, 3165518, 4149104, 4508225, 3807133, 4440971, 3824583, 4653326}
