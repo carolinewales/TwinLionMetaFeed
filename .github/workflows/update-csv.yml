@@ -25,8 +25,8 @@ jobs:
       - name: Run export script
         run: python exportWomensProducts.py
         env:
-          lightspeedKey: ${{ secrets.lightspeedKey }}
-          lightspeedSecret: ${{ secrets.lightspeedSecret }}
+          lightspeedKey: ${{ secrets.LIGHTSPEEDKEY }}
+          lightspeedSecret: ${{ secrets.LIGHTSPEEDSECRET }}
 
       - name: Commit and push CSV if changed
         run: |
