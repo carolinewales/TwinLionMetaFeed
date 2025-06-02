@@ -23,7 +23,10 @@ jobs:
           pip install -r requirements.txt || pip install pandas requests
 
       - name: Run export script
-        run: python exportProducts.py
+        run: python exportWomensProducts.py
+        env:
+          lightspeedKey: ${{ secrets.lightspeedKey }}
+          lightspeedSecret: ${{ secrets.lightspeedSecret }}
 
       - name: Commit and push CSV if changed
         run: |
