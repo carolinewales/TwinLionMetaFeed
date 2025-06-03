@@ -122,7 +122,7 @@ def metaFormat(products):
             else:
                 size = "One size"
 
-            if variant.get("isVisible") is False:
+            if not variant.get("isVisible", False):
                 continue
             
             row = {
