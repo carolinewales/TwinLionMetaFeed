@@ -35,36 +35,3 @@ jobs:
           git add womensProducts.csv
           git commit -m "Automated update of womensProducts.csv" || echo "No changes to commit"
           git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
-  
-  export-mens-products:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Wait 10 minutes # Give API calls time to reset
-        run: sleep 600 # Seconds
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.x'
-
-      - name: Install dependencies
-        run: |
-          pip install -r requirements.txt || pip install pandas requests
-
-      - name: Run export script
-        run: python exportMensProducts.py
-        env:
-          LIGHTSPEED_KEY: ${{ secrets.LIGHTSPEED_KEY }}
-          LIGHTSPEED_SECRET: ${{ secrets.LIGHTSPEED_SECRET }}
-
-      - name: Commit and push CSV if changed
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add womensProducts.csv
-          git commit -m "Automated update of womensProducts.csv" || echo "No changes to commit"
-          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
