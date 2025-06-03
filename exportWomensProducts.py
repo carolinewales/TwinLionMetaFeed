@@ -26,12 +26,14 @@ def getAttributes(productID):
         # For each variant, access ID, price, stock avaliblity, and size. Add that data to the result list
         for variant in variants:
             variantID = variant.get("id")
+            avalibility = variant.get("isVisible")
             price = variant.get('priceIncl', 0)
             stock = variant.get('stockLevel', 0)
             size = variant.get('title', 'Unknown')
 
             result.append({
                 "id": variantID,
+                "avalibility": avalibility,
                 "price": price,
                 "stock": stock,
                 "size": size
@@ -119,6 +121,9 @@ def metaFormat(products):
                 size = size[7:]  # remove prefix
             else:
                 size = "One size"
+
+            if variant.get("isVisible") is False:
+                continue
             
             row = {
                 "id": variant["id"],
