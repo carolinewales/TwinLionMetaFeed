@@ -43,6 +43,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Wait 10 minutes # Give API calls time to reset
+        run: sleep 600 # Seconds
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
