@@ -70,7 +70,7 @@ def getProducts():
     womensProducts = []
     page = 1
     limit = 25
-    maxProducts = 100
+    maxProducts = 150
 
     while allProducts < maxProducts:
         # Getting products with pagination 
