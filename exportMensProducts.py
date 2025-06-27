@@ -94,7 +94,7 @@ def getProducts():
             productID = product.get('id')
             filter = filterMens(productID)
 
-            if  filter == True and product.get('isVisible') and product.get('description'):
+            if  filter == True and product.get('isVisible') and product.get('description') and isinstance(product.get("image"), dict) and product['image'].get('src'):
                 # (debugging) print("ProductID:", productID)
                 # Add new products to allProducts (avoiding nesting the batch)
                 mensProducts.append(product)
