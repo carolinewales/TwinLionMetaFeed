@@ -40,6 +40,5 @@ jobs:
         if: failure()
         run: python sendErrorEmail.py
         env:
-          EMAIL_SENDER: ${{ secrets.EMAIL_SENDER }}
-          EMAIL_RECIEVER: ${{ secrets.EMAIL_SENDER }}
+          EMAIL_ADDRESS: ${{ secrets.EMAIL_ADDRESS }}
           EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
