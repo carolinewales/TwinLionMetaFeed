@@ -35,3 +35,16 @@ jobs:
           git add mensProducts.csv
           git commit -m "Automated update of mensProducts.csv" || echo "No changes to commit"
           git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+
+      - name: Notify of completion
+        run: python completionEmail.py
+        env:
+          EMAIL_ADDRESS: ${{ secrets.EMAIL_ADDRESS }}
+          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+          
+      - name: Notify if something goes wrong
+        if: failure()
+        run: python sendErrorEmail.py
+        env:
+          EMAIL_ADDRESS: ${{ secrets.EMAIL_ADDRESS }}
+          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
