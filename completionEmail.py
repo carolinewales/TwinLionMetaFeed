@@ -14,7 +14,7 @@ message = EmailMessage()
 message['Subject'] = 'Twin Lion Meta Feed Updated'
 message['From'] = os.environ['EMAIL_ADDRESS']
 message['To'] = os.environ['EMAIL_ADDRESS']
-message.set_content('Successful update complete! You are awesome, have a good day. \nOutput:\n\n' + output[:6000])
+message.set_content('Successful update complete! You are awesome, have a good day. \nOutput:\n' + output[:6000])
 
 with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
     smtp.login(os.environ['EMAIL_ADDRESS'], os.environ['EMAIL_PASSWORD'])
