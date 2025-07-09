@@ -35,3 +35,11 @@ jobs:
           git add womensProducts.csv
           git commit -m "Automated update of womensProducts.csv" || echo "No changes to commit"
           git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+
+      - name: Notify if something goes wrong
+        if: failure()
+        run: python sendErrorEmail.py
+        env:
+          EMAIL_SENDER: ${{ secrets.EMAIL_SENDER }}
+          EMAIL_RECIEVER: ${{ secrets.EMAIL_SENDER }}
+          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
