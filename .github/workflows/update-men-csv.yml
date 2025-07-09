@@ -23,7 +23,7 @@ jobs:
           pip install -r requirements.txt || pip install pandas requests
 
       - name: Run export script
-        run: python exportMensProducts.py
+        run: python -u exportMensProducts.py 2>&1 | tee output.log
         env:
           LIGHTSPEED_KEY: ${{ secrets.LIGHTSPEED_KEY }}
           LIGHTSPEED_SECRET: ${{ secrets.LIGHTSPEED_SECRET }}
