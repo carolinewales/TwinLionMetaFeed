@@ -9,8 +9,8 @@ key = os.getenv('LIGHTSPEED_KEY')
 secret = os.getenv('LIGHTSPEED_SECRET')
 baseURL = 'https://api.shoplightspeed.com/us/'
 # Men's and Women's IDs
-womensIDs = {4547704, 3165569, 3165570, 3165571, 3165572, 3165568, 4149105, 3165573, 3995009, 3165515, 3165517, 3165518, 4149104, 4508225, 3807133, 4440971, 3824583, 4653326, 4572272, 4149106, 3850369}
-mensIDs = {4467161, 4467165, 4467166, 4467167, 4546569, 4546570, 4614909, 4467193, 4546581, 4546582, 3824583, 4631065, 4588392, 4492435}
+womensIDs = {4547704, 3165569, 3165570, 3165571, 3165572, 3165568, 4149105, 3165573, 3995009, 3165515, 3165517, 3165518, 4149104, 4508225, 3807133, 4440971, 3824583, 4653326, 4572272, 4149106, 3850369, 4572272, 4624346}
+mensIDs = {4467161, 4467165, 4467166, 4467167, 4546569, 4546570, 4614909, 4467193, 4546581, 4546582, 3824583, 4631065, 4588392, 4492435, 4572272}
 
 # ~~~ FUNCTIONS ~~~
 # Helper function, gets price (including tax), size, and stock amount for each variant of a product
@@ -152,3 +152,4 @@ formattedProducts = metaFormat(filteredProducts)
 print("Exporting CSV mensProducts.csv")
 formattedProducts.to_csv("mensProducts.csv", index = False)
 print("Finished!")
+
