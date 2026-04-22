@@ -1,8 +1,8 @@
 name: Update Men's Products CSV Daily
 
 on:
-  schedule:
-    - cron: "15 7 * * *"  # Runs daily at 7:15 UTC (2:15 EST)
+  # schedule:
+    # - cron: "15 7 * * *"  # Runs daily at 7:15 UTC (2:15 EST)
   workflow_dispatch:      # Allows manual run
 
 jobs:
